@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="text-center">Result</h1>
+  <div class="comment justify-content-center">
+    <% if @word_check %>
+      <% if @word_found %>
+      <p><strong>Congratualtions! </strong><%= @word.upcase %> is a valid English word</p>
+      <% else %>
+      <p>Sorry but <strong><%= @word.upcase %></strong> does not seem to be a valid English word...</p>
+      <% end %>
+    <% else %>
+      <p>Sorry but <strong><%= @word.upcase %></strong> can't be built out of </p>
+        <% @letters.each do |letter| %>
+          <p class="final-letter"> <%= letter%>, </p>
+        <% end %>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <%= link_to "Play again", "/new" %>
+  </div>
+</div>
+
